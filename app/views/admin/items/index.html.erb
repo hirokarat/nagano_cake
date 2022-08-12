@@ -1,2 +1,11 @@
 <h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<% @items.each do |item| %>
+
+<p>名前</p>
+<%= item.name%>
+<p>紹介</p>
+<%= item.introduction%>
+<p>価格</p>
+<%= item.price%>
+
+<%end%>

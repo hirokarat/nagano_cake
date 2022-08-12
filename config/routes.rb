@@ -7,16 +7,9 @@ Rails.application.routes.draw do
     get 'customers/show'
     get 'customers/edit'
     get 'customers/update'
-    get 'genres/index'
-    get 'genres/create'
-    get 'genres/edit'
-    get 'genres/update'
-    get 'items/index'
-    get 'items/new'
-    get 'items/create'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/update'
+    resources:genres,only:[:index,:create,:edit,:update]
+    resources:items,only:[:index,:new,:create,:show,:edit,:update]
+  
     get 'homes/top'
   end
   

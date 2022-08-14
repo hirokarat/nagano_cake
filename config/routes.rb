@@ -3,10 +3,8 @@ Rails.application.routes.draw do
     get 'orders_details/update'
     get 'orders/show'
     get 'orders/update'
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/update'
+    
+    resources:customers,only:[:index,:show,:edit,:update]
     resources:genres,only:[:index,:create,:edit,:update]
     resources:items,only:[:index,:new,:create,:show,:edit,:update]
   

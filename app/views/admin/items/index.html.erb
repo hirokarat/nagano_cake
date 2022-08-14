@@ -3,16 +3,13 @@
 
 <% @items.each do |item| %>
 
-<p>id</p>
-<%= item.id%>
+<p>id:<%= item.id%></p>
 
-<p>名前</p>
-<%= link_to item.name,admin_item_path(item) %>
-<p>ジャンル</p>
- <%= item.genre.name%>
+<p>名前:<%= link_to item.name,admin_item_path(item) %></p>
 
-<p>価格</p>
-<%= item.price%>
+<p>ジャンル:<%= item.genre.name%></p>
+
+<p>価格:<%= item.price%></
 
 <p>ステータス</p>
 <%= item.is_active ? '販売中' : '販売停止中'%>

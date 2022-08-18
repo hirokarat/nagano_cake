@@ -1,22 +1,19 @@
-<h1>新規投稿</h1>
-  <%= form_with model:@item, local: true, url: '/admin/items', method: :post do |f| %>
-<h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-<h4>商品名</h4>
-  <%= f.text_field:name %>
-<h4>商品説明</h4>
-  <%= f.text_area:introduction%>
-  
-  <h4>ジャンル</h4>
-  <%= f.select :genre_id, Genre.all.map{|o| [o.name, o.id]},{ include_blank: '選択してください'} %>
-  
-<h4>税込価格</h4>
-  <%= f.text_field:price%><br/>
-  
-  <%= f.radio_button :is_active, :true %>
-  <%= f.label :is_active, "販売中" %><br />
-  <%= f.radio_button :is_active, :false %>
-  <%= f.label :is_active, "販売停止中" %><br />
-  
-  <%= f.submit "新規登録" %>
-  <%end%>
+<div class="text-danger">
+<% if @item.errors.any? %>
+   <span class="h4"><%= @item.errors.count %>errors prohibited this obj from being saved:</span>
+  <% @item.errors.full_messages.each do |message| %><br>
+     ・<%= message %>
+  <% end %>
+<% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto col-md-5">
+      <h1 class="mb-5">商品新規登録</h1>
+        <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+          <%= render 'form_item', f: f %>
+          <%= f.submit '新規登録', class: "btn btn-success btn-lg mx-auto d-block" %>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  
+  get "/" => "homes#top", as: "top"
+  get "/about" => "homes#about", as: "about"
+  get "/customers" => "customer/customers#rule", as: "customer_rule"
+  
   namespace :admin do
-    get 'orders_details/update'
-    
+  
     resources:orders,only:[:show,:update]
     resources:customers,only:[:index,:show,:edit,:update]
     resources:genres,only:[:index,:create,:edit,:update]
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
     root to:'homes#top'
   end
   
+  namespace :public do
     get 'addresses/index'
     get 'addresses/edit'
     get 'addresses/create'
@@ -33,6 +38,7 @@ Rails.application.routes.draw do
     get 'customers/withdtaw'
     root to:'homes#top'
     get 'homes/about'
+  end
   
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"

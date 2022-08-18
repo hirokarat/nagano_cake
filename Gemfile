@@ -6,6 +6,7 @@ ruby "3.1.2"
 gem 'devise'
 gem "enum_help"
 gem 'rails-i18n'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
@@ -76,3 +77,4 @@ group :test do
  
   
 end
+gem 'kaminari','~> 1.2.1'

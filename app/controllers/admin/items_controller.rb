@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items=Item.all
+    @items = Item.all.page(params[:page]).per(10)
   end
 
   def new
@@ -8,9 +8,13 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    @item=Item.new(item_params)
-    @item.save
-    redirect_to '/admin/items'
+    @item = Item.new(item_params)
+    if @item.save
+       flash[:notice] = "You have created Item successfully"
+       redirect_to admin_item_path(@item.id)
+    else
+       render :new
+    end
   end
 
   def show
@@ -23,8 +27,12 @@ class Admin::ItemsController < ApplicationController
 
   def update
     @item=Item.find(params[:id])
-    @item.update
-    redirect_to '/admin/items'
+    if @item.update(item_params)
+       flash[:notice] = "You have update Item successfully"
+       redirect_to admin_item_path(@item.id)
+    else
+       render :edit
+    end
   end
   
   private

@@ -18,8 +18,8 @@
           <a class="navbar-brand" href="/">
             <span>Nagano Cake</span>
           </a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+          <div class="navbar navbar-light bg-light" id="navbarNavDropdown">
+             <div class="container-fluid">
               <% if customer_signed_in? %>
                 <li class="customer-name">
                   ようこそ、<%= current_customer.last_name %> さん
@@ -56,18 +56,18 @@
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
                 </li>
               <% else %>
-                <li class="ml-4">
+                <button class="btn btn-outline-success me-2" type="button">
                   <%= link_to "About", about_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4">
+                </button>
+                <button class="btn btn-outline-success me-2" type="button">
                   <%= link_to "商品一覧", public_root_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4">
+                </button>
+                <button class="btn btn-outline-success me-2" type="button">
                   <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4 mr-4">
+                </button>
+                <button class="btn btn-outline-success me-2" type="button">
                   <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %>
-                </li>
+                </button>
               <% end %>
             </ul>
           </div>

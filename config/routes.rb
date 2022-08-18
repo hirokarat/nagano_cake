@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources:genres,only:[:index,:create,:edit,:update]
     resources:items,only:[:index,:new,:create,:show,:edit,:update]
   
-    get 'homes/top'
+    root to:'homes#top'
   end
   
     get 'addresses/index'

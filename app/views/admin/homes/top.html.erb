@@ -1,2 +1,13 @@
 <h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+
+<% @orders.each do |order| %>
+
+<%= order.created_at.strftime('%Y/%m/%d/%H/%M/%S') %>
+
+<%= order.customer.name%>
+
+<%= order.count%>
+
+
+
+<%end%>

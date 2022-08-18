@@ -6,7 +6,12 @@
 
 <p>会員id:<%= customer.id%></p>
 
-<p>氏名:<%= link_to f.collection_select :customer_id, customer, :id, :full_name,admin_customer_path %></p>
+<p>
+氏名:<%= link_to admin_customers_path do%>
+<%= customer.last_name%>
+<%= customer.first_name%>
+</p>
+<%end%>
 
 <p>メールアドレス:<%= customer.email%></p>
 

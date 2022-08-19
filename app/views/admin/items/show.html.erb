@@ -2,7 +2,7 @@
   <h1 >商品詳細</h1>
   <div class="row">
     <div class="mt-5 col-md-5">
-        <span><%= attachment_image_tag @item, :image, format: 'jpeg', fallback: 'no_image.jpg', size:'300x200'%></sapn>
+        <span></sapn>
     </div>
     <div class="mt-5 col-md-5">
       <div class="row">
@@ -19,7 +19,7 @@
       </div>
       <div class="row">
         <p class="col-md-4">税込価格<br>(税抜価格)</p>
-        <p class="col-md-8 admin-item-price"><%= tax_price(@item.price).to_s(:delimited) %>円(<%= @item.price.to_s(:delimited) %>円)</p>
+        <p class="col-md-8 admin-item-price"><%= tax_price(@item.price) %>円(<%= @item.price %>円)</p>
       </div>
       <div class="row">
         <p class="col-md-4">販売ステータス</p>

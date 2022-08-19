@@ -40,19 +40,19 @@
                   <%= link_to "ログアウト", destroy_public_session_path, method: :delete, class: "btn btn-outline-dark" %>
                 </li>
               <% elsif admin_signed_in? %>
-                <li class="ml-4">
+                <li class="btn btn-outline-success me-2" type="button">
                   <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-dark" %>
                 </li>
-                <li class="ml-4">
+                <li class="btn btn-outline-success me-2" type="button">
                   <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-dark" %>
                 </li>
-                <li class="ml-4">
+                <li class="btn btn-outline-success me-2" type="button">
                   <%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-dark" %>
                 </li>
-                <li class="ml-4">
+                <li class="btn btn-outline-success me-2" type="button">
                   <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-dark" %>
                 </li>
-                <li class="ml-4 mr-4">
+                <li class="btn btn-outline-success me-2" type="button">
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
                 </li>
               <% else %>

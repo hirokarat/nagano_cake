@@ -5,20 +5,19 @@ class Order < ApplicationRecord
 
     # 注文の全ての数量合計
     def sum_order_items
-        self.item_orders.all.sum(:quantity)
+        self.item_orders.all.sum(:amount)
     end
     
     #注文の合計金額
     def total_price
         array = []
-        self.item_orders.each do |item_order|
-           array << item_order.tax_price * item_order.quantity
+        self.order_details.each do |order_detail|
+           array << order_detail.tax_price * order_detail.amount
        end
         array.sum
     end
     
-    
-  
     enum payment_method:{credit_card:0,transfer:1}
+    enum order_status: { payment_waiting: 0, payment_confirmation: 1, in_production: 2, preparing_delivery: 3, delivered: 4}
   
 end

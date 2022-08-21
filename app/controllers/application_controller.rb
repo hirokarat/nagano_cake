@@ -17,7 +17,12 @@ class ApplicationController < ActionController::Base
       new_customer_session_path
     end
   end
-
+  
+  def customer_shut_out
+    unless admin_signed_in?
+      redirect_to top_path
+    end
+  end
   
   protected
   

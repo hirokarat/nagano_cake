@@ -9,8 +9,13 @@ class Admin::GenresController < ApplicationController
 
   def create
     @genre=Genre.new(genre_params)
-    @genre.save
-    redirect_to '/admin/index'
+    if @genre.save
+       flash[:notice] = "You have created Genre successfully"
+       redirect_to admin_genres_path
+    else
+       @genres = Genre.all
+       render :index
+    end
   end
 
   def edit
@@ -19,8 +24,12 @@ class Admin::GenresController < ApplicationController
 
   def update
     @genre=Genre.find(params[:id])
-    @genre.update(genre_params)
-    redirect_to admin_genres_path
+    if @genre.update(genre_params)
+       flash[:notice] = "You have update Genre successfully"
+       redirect_to admin_genres_path
+    else
+       render :edit
+    end
   end
   
   private

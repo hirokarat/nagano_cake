@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
   
   
   def index
-    @orders=Order.all
+    @orders = Order.page(params[:page]).per(10)
   end
   
   def show
@@ -20,7 +20,7 @@ class Admin::OrdersController < ApplicationController
       end
     end
     @orders = Order.page(params[:page]).per(10)
-    redirect_to admin_top_path
+    redirect_to admin_orders_path
   end
 
   

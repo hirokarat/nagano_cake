@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if resource_or_scope.is_a?(Admin)
       admin_items_path
     else
-      top_path
+      public_my_page_path
     end
   end
   

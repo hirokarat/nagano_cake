@@ -41,10 +41,10 @@ Rails.application.routes.draw do
     get 'cart_items/destroy_all'
     get 'cart_items/create'
     
-  
-    resources:customers,only:[:edit,:update]
     get 'customers/unsubscribe'
     get 'customers/withdtaw'
+    get 'customers/information/edit'=>'customers#edit',as: 'customer_edit'
+    patch "update" => "customers#update", as: "customer_update"
     get 'customers/my_page'=>'customers#show',as: 'my_page'
     root to:'homes#top'
     get 'homes/about'

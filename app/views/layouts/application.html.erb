@@ -21,8 +21,8 @@
           <div class="navbar navbar-light bg-light" id="navbarNavDropdown">
              <div class="container-fluid">
               <% if customer_signed_in? %>
-                <li class="customer-name">
-                  ようこそ、<%= current_customer.last_name %> さん
+                <li class="customer-name ">
+                  ようこそ、<%= current_customer.last_name %> さん!
                 </li>
                 <li class="ml-4">
                   <%= link_to "マイページ", class: "btn btn-outline-dark" %>

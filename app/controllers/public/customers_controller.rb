@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
   end
 
-  def withdtaw
+  def withdraw
   end
   
   private

@@ -42,10 +42,11 @@ Rails.application.routes.draw do
     get 'cart_items/create'
     
     get 'customers/unsubscribe'
-    get 'customers/withdtaw'
     get 'customers/information/edit'=>'customers#edit',as: 'customer_edit'
     patch "update" => "customers#update", as: "customer_update"
     get 'customers/my_page'=>'customers#show',as: 'my_page'
+    get "customers/unsubscribe" => "customers#unsubscribe", as: "customer_unsubscribe"
+    patch "withdraw" => "customers#withdraw", as: "customer_withdraw"
     root to:'homes#top'
     get 'homes/about'
   end

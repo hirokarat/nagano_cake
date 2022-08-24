@@ -28,11 +28,11 @@ class Admin::OrdersController < ApplicationController
   private
 
     def order_detail_params
-      params.permit(:maiking_status).merge(maiking_status: 1)
+      params.permit(:is_active).merge(is_active: 1)
     end
 
     def order_params
-      params.require(:order).permit(:order_status).merge(order_status: params[:order][:order_status].to_i)
+      params.require(:order).permit(:is_active).merge(is_active: params[:order][:is_active].to_i)
     end
   
 end

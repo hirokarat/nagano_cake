@@ -3,14 +3,26 @@ class Admin::OrdersDetailsController < ApplicationController
     order_detail = OrderDetail.find(params[:id])
     order_detail = OrderDetail.where(order_id: order_detail.order_id)
     order = order_detail.order
-    item_order.update(item_order_params)
-    if item_orders.all?{ |item_order| item_order.maiking_status === "製作完了" }
+    order_detail.update(order_detail_params)
+    if order_detail.all?{ |order_detail| order_detail.is_active === "production_complete" }
       order.update(complete_order_params)
-    else
-      if item_order.maiking_status === "製作中"
-        order.update(order_params)
-      end
+    elsif order_detail.is_active === "in_production"
+      order.update(order_params)
     end
-    redirect_to admin_order_path(item_order.order_id)
+    redirect_to admin_order_path(order_detail.order_id)
   end
+  
+   private
+    def order_detail_params
+      params.require(:order_detail).permit(:is_active).merge(is_active: params[:order_detail][:is_active].to_i)
+    end
+
+    def order_params
+      params.permit(:is_active).merge(is_active: 2)
+    end
+
+    def complete_order_params
+      params.permit(:is_active).merge(is_active: 3)
+    end
+  
 end

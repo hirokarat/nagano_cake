@@ -1,6 +1,6 @@
-class CreateAdresses < ActiveRecord::Migration[7.0]
+class CreateAddresses < ActiveRecord::Migration[7.0]
   def change
-    create_table :adresses do |t|
+    create_table :addresses do |t|
       
       t.string :name,             null: false
       t.string :postal_code,      null: false

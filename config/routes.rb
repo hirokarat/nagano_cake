@@ -24,11 +24,6 @@ Rails.application.routes.draw do
   end
   
   namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-    get 'addresses/create'
-    get 'addresses/update'
-    get 'addresses/destroy'
     get 'orders/new'
     get 'orders/confirm'
     get 'orders/complete'
@@ -41,7 +36,8 @@ Rails.application.routes.draw do
     get 'cart_items/destroy_all'
     get 'cart_items/create'
     
-    get 'customers/unsubscribe'
+    resources :addresses, only: [:index, :create, :destroy, :edit, :update]
+    
     get 'customers/information/edit'=>'customers#edit',as: 'customer_edit'
     patch "update" => "customers#update", as: "customer_update"
     get 'customers/my_page'=>'customers#show',as: 'my_page'

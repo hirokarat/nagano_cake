@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    
+
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -19,50 +19,50 @@
             <span>Nagano Cake</span>
           </a>
           <div class="navbar navbar-light bg-light" id="navbarNavDropdown">
-             <div class="container-fluid">
+             <div class="container-fluid justify-content-end">
               <% if customer_signed_in? %>
-                <li class="customer-name ">
+                <div class="customer-name me-5 mt-5">
                   ようこそ、<%= current_customer.last_name %> さん!
-                </li>
-                <li class="ml-4">
-                  <%= link_to "マイページ", class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4">
-                  <%= link_to "商品一覧",  class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4">
-                  <%= link_to "カート", class: "btn btn-outline-dark" %>
-                </li>
-                <li class="ml-4 mr-4">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %>
-                </li>
+                </div>
+                <button class="btn btn-sm btn-outline-secondary me-5 ms-5" type="button">
+                  <%= link_to "マイページ"%>
+                </button>
+                <button class="btn btn-sm btn-outline-secondary me-5" type="button">
+                  <%= link_to "商品一覧" %>
+                </button>
+                <button class="btn btn-sm btn-outline-secondary me-5" type="button">
+                  <%= link_to "カート" %>
+                </button>
+                <button class="btn btn-sm btn-outline-secondary me-5" type="button">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+                </button>
               <% elsif admin_signed_in? %>
-                <li class="btn btn-outline-success me-2" type="button">
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="btn btn-outline-success me-2" type="button">
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="btn btn-outline-success me-2" type="button">
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "注文履歴一覧", admin_orders_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="btn btn-outline-success me-2" type="button">
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-dark" %>
-                </li>
-                <li class="btn btn-outline-success me-2" type="button">
+                </button>
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= button_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
-                </li>
+                </button>
               <% else %>
-                <button class="btn btn-outline-success me-2" type="button">
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "About", about_path, class: "btn btn-outline-dark" %>
                 </button>
-                <button class="btn btn-outline-success me-2" type="button">
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "商品一覧", public_root_path, class: "btn btn-outline-dark" %>
                 </button>
-                <button class="btn btn-outline-success me-2" type="button">
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-dark" %>
                 </button>
-                <button class="btn btn-outline-success me-2" type="button">
+                <button class="btn btn-sm btn-outline-secondary" type="button">
                   <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-dark" %>
                 </button>
               <% end %>

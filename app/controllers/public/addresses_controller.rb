@@ -48,7 +48,7 @@ class Public::AddressesController < ApplicationController
 
   def baria_customer
     unless Address.find(params[:id]).customer.id.to_i == current_customer.id
-      redirect_to public_customer_path
+      redirect_to public_my_page_path
     end
   end
 

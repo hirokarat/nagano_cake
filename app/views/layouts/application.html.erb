@@ -25,10 +25,10 @@
                   ようこそ、<%= current_customer.last_name %> さん!
                 </div>
                 <button class="btn btn-sm btn-outline-secondary me-5 ms-5" type="button">
-                  <%= link_to "マイページ"%>
+                  <%= link_to "マイページ", public_my_page_path%>
                 </button>
                 <button class="btn btn-sm btn-outline-secondary me-5" type="button">
-                  <%= link_to "商品一覧" %>
+                  <%= link_to "商品一覧", public_items_path%>
                 </button>
                 <button class="btn btn-sm btn-outline-secondary me-5" type="button">
                   <%= link_to "カート" %>

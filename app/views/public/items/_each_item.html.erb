@@ -1,9 +1,11 @@
 <div class="item-container">
+  <%= link_to public_item_path(item.id) do %>
   <%= image_tag item.image, size:'200x150' %>
+  <% end %>
   <p>
-    
+    <%= link_to public_item_path(item.id), class: "btn-link text-dark" do %>
     <%= item.name %>
-    
+    <% end %>
   </p>
   <% if item.is_active == true %>
     <p><%= item.price %> 円</p>

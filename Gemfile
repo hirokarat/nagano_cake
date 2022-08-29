@@ -7,6 +7,7 @@ gem 'devise'
 gem "enum_help"
 gem 'rails-i18n'
 gem "cssbundling-rails"
+gem 'pry-byebug',group: :development
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"

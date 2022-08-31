@@ -8,7 +8,7 @@
         <p>商品説明:</p>
         <p><%= @item.introduction %></p>
 
-        <p>税込価格（税抜価格）<strong class="h5"><%= tax_price(@item.price) %>円</strong>(<%= @item.price %>円)</p>
+        <p>税込価格（税抜価格）<strong class="h5"><%= tax_price(@item.price).to_formatted_s(:delimited) %>円</strong>(<%= @item.price.to_formatted_s(:delimited) %>円)</p>
 
         <%= form_with model: @cart_item, url: public_cart_items_path, local: true do |f| %>
           <%= f.hidden_field :item_id, value: @item.id %>

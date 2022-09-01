@@ -24,4 +24,5 @@ module ApplicationHelper
     total_price(current_cart) + order.postage 
   end
   
+  
 end

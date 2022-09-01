@@ -24,17 +24,17 @@ Rails.application.routes.draw do
   end
   
   namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/create'
-    get 'orders/index'
-    get 'orders/show'
     get 'cart_items/index'
     get 'cart_items/update'
     get 'cart_items/destroy'
     get 'cart_items/destroy_all'
     get 'cart_items/create'
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post "confirm" 
+        get "complete" 
+      end
+    end
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "cart_items/destroy_all" => "cart_items#all_destroy", as: "cart_item_all_destroy"

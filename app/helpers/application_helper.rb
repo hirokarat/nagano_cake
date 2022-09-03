@@ -20,9 +20,7 @@ module ApplicationHelper
     @cart_items = current_customer.cart_items
   end
   
-  def billing(order)
-    total_price(current_cart) + order.postage 
-  end
+  
   
   
 end

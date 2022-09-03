@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_134004) do
     t.integer "billing_amount", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "is_active", default: 0, null: false
+    t.integer "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
@@ -7,39 +7,35 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-  
-  
+
+
   get "/" => "homes#top", as: "top"
   get "/about" => "homes#about", as: "about"
   get "/customers" => "customer/customers#rule", as: "customer_rule"
-  
+
   namespace :admin do
-  
+
     resources:orders,only:[:index,:show,:update]
     resources:customers,only:[:index,:show,:edit,:update]
     resources:genres,only:[:index,:create,:edit,:update]
     resources:items,only:[:index,:new,:create,:show,:edit,:update]
-  
+
     root to:'homes#top'
   end
-  
+
   namespace :public do
-    get 'cart_items/index'
-    get 'cart_items/update'
-    get 'cart_items/destroy'
-    get 'cart_items/destroy_all'
-    get 'cart_items/create'
+    # post '/orders/confirm' => 'orders#confirm'
     resources :orders, only: [:new, :create, :index, :show] do
       collection do
-        post "confirm" 
-        get "complete" 
+        get "confirm"
+        get "complete"
       end
     end
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "cart_items/destroy_all" => "cart_items#all_destroy", as: "cart_item_all_destroy"
     resources :addresses, only: [:index, :create, :destroy, :edit, :update]
-    
+
     get 'customers/information/edit'=>'customers#edit',as: 'customer_edit'
     patch "update" => "customers#update", as: "customer_update"
     get 'customers/my_page'=>'customers#show',as: 'my_page'
@@ -48,8 +44,8 @@ Rails.application.routes.draw do
     root to:'homes#top'
     get 'homes/about'
   end
-  
- 
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

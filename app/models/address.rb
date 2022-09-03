@@ -6,10 +6,6 @@ class Address < ApplicationRecord
   validates :name, presence: true
     
 	# order/newで使用
-  def order_address
-	self.postal_code + self.address + self.name
-  end
-  
   def address_display
   '〒' + postal_code + ' ' + address + ' ' + name
   end

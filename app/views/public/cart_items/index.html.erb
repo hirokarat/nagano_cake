@@ -5,7 +5,7 @@
       <h3 class="d-inline" style="margin-bottom: 0;">ショッピングカート</h3>
     </div>
     <div class="text-end col-8">
-    <%= button_to "カートを空にする",public_cart_item_all_destroy_path,method: :delete, class: "btn btn-danger d-inline col-3", "data-confirm" => "カート内の商品を削除してもよろしいですか？"  %>
+    <%= button_to "カートを空にする",public_cart_item_all_destroy_path, method: :delete, class: "btn btn-danger d-inline col-3", "data-confirm" => "カート内の商品を削除してもよろしいですか？"  %>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
   <div class="row">
 
     <%= link_to "買い物を続ける", public_items_path, class: "col-3 btn btn-primary" %>
-  
+
     <table class="d-flex justify-content-end  table" >
       <tbody>
         <tr>
